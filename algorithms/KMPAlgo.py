@@ -4,7 +4,7 @@ def compute_prefix_function(pattern):
     j = 0
     for i in range(1, m):
         while j > 0 and pattern[i] != pattern[j]:
-            j = pi[j-1]
+            j = pi[j - 1]
         if pattern[i] == pattern[j]:
             j += 1
         pi[i] = j
@@ -20,23 +20,23 @@ def kmp_search(text, pattern):
 
     for i in range(n):
         while j > 0 and text[i] != pattern[j]:
-            j = pi[j-1]  # Fall back in the pattern
+            j = pi[j - 1]  # Fall back in the pattern
         if text[i] == pattern[j]:
             j += 1  # Match next character
         if j == m:  # A match is found
             occurrences.append(i - m + 1)
-            j = pi[j-1]  # Prepare for the next possible match
+            j = pi[j - 1]  # Prepare for the next possible match
 
     return occurrences
 
 
 # Get user input
-text = input("Enter the text: ")
-pattern = input("Enter the pattern: ")
+# text = input("Enter the text: ")
+# pattern = input("Enter the pattern: ")
 
-# Find and display occurrences
-occurrences = kmp_search(text, pattern)
-if occurrences:
-    print(f'Pattern found at indices: {occurrences}')
-else:
-    print('Pattern not found in the text.')
+# # Find and display occurrences
+# occurrences = kmp_search(text, pattern)
+# if occurrences:
+#     print(f"Pattern found at indices: {occurrences}")
+# else:
+#     print("Pattern not found in the text.")
