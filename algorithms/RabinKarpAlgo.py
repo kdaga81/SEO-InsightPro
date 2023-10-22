@@ -25,6 +25,8 @@ class RabinKarp:
         return new_hash
 
     def search_pattern(self):
+        count = 0
+
         self.pattern_hash_value = self.calculate_hash_value(
             self.pattern, self.pattern_length
         )
@@ -36,8 +38,8 @@ class RabinKarp:
                     if self.text[i + j] != self.pattern[j]:
                         break
                 else:
-                    print(f"Pattern found at index {i}")
-
+                    # print(f"Pattern found at index {i}")
+                    count += 1
                     pattern_found = True
             if i < self.text_length - self.pattern_length:
                 self.hash_value = self.recalculate_hash_value(
@@ -47,10 +49,12 @@ class RabinKarp:
         if not pattern_found:
             print("Pattern not found in the text.")
 
+        return count
+
 
 # if __name__ == "__main__":
 #     text = input("Enter the text: ")
 #     pattern = input("Enter the pattern: ")
 #     rk_search = RabinKarp(text, pattern)
 
-#     rk_search.search_pattern()
+#     print(rk_search.search_pattern())

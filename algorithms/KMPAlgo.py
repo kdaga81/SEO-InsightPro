@@ -27,7 +27,7 @@ def kmp_search(text, pattern):
             occurrences.append(i - m + 1)
             j = pi[j - 1]  # Prepare for the next possible match
 
-    return occurrences
+    return len(occurrences)
 
 
 # Get user input

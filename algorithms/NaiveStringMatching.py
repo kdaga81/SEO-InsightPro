@@ -1,13 +1,14 @@
 def naive_string_matching(text, pattern):
     n = len(text)
     m = len(pattern)
+
     occurrences = []  # List to store the starting indices of matches
 
     for i in range(n - m + 1):
         if text[i : i + m] == pattern:
             occurrences.append(i)
 
-    return occurrences
+    return len(occurrences)
 
 
 # Get user input
@@ -17,6 +18,6 @@ def naive_string_matching(text, pattern):
 # # Find and display occurrences
 # occurrences = naive_string_matching(text, pattern)
 # if occurrences:
-#     print(f'Pattern found at indices: {occurrences}')
+#     print(f"Pattern found at indices: {occurrences}")
 # else:
-#     print('Pattern not found in the text.')
+#     print("Pattern not found in the text.")
