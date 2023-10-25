@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // Importing TagCloud package
 import TagCloud from "TagCloud";
-import  "C:/Users/Velampatimourya/Desktop/Project3/tableandvisualize/src/Components/TextSphere.css"
+import  "./TextSphere.css"
 const TextShpere = () => {
   // Animation settings for Text Cloud
   useEffect(() => {

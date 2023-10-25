@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 
 const MainPage = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', marginTop:"30px" }}>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <Paper elevation={3} style={{ padding: '20px' }}>
