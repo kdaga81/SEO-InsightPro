@@ -4,10 +4,14 @@ import time
 
 
 def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
+
+    wordCount = {}
+    process_time = {}
+
     # run algorithms
-    if algorithmselected == "NaiveStringMatching":
+    if "NaiveStringMatching" in algorithmselected:
         start = time.process_time()
-        wordCount = {}
+        
         text_data = scrapped_data.split()
         # print(text_data)
         for word in text_data:
@@ -18,12 +22,11 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
 
         end = time.process_time()
-        process_time = (end - start) * 1000000
-        print("time to run algorithm", (end - start) * 1000000, "ms")
-        print(wordCount)
-        return wordCount, process_time
+        process_time["NaiveStringMatching"] = (end - start)
+        print("time to run NaiveStringMatching algorithm", (end - start) , "secs")
 
-    elif algorithmselected == "KMPAlgorithm":
+
+    if "KMPAlgorithm" in algorithmselected:
         start = time.process_time()
         wordCount = {}
         text_data = scrapped_data.split()
@@ -35,12 +38,11 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 count = KMPAlgo.kmp_search(scrapped_data, word)
                 wordCount[word] = count
         end = time.process_time()
-        process_time = (end - start) * 1000000
-        print("time to run algorithm", (end - start) * 1000000, "ms")
-        print(wordCount)
-        return wordCount, process_time
+        process_time["KMPAlgorithm"] = (end - start) 
+        print("time to run KMPAlgorithm algorithm", (end - start),  "secs")
+        
 
-    elif algorithmselected == "RabinKarbAlgorithm":
+    if "RabinKarbAlgorithm" in algorithmselected:
         start = time.process_time()
         wordCount = {}
         text_data = scrapped_data.split()
@@ -55,11 +57,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
 
         end = time.process_time()
-        process_time = (end - start) * 1000000
-        print("time to run algorithm", (end - start) * 1000000, "ms")
-        print(wordCount)
-        return wordCount, process_time
+        process_time["RabinKarbAlgorithm"] = (end - start)
+        print("time to run RabinKarbAlgorithm algorithm", (end - start), "secs")
 
-    else:
-        print("please enter valid algorithm name")
-        return {}, 0
+    return wordCount, process_time

@@ -33,7 +33,7 @@ def getWepageData(url):
         filtered_text = " ".join(filtered_words)
 
         # Print the cleaned text without custom stop words
-        print(filtered_text)
+        # print(filtered_text)
     else:
         print("Failed to retrieve the web page. Status code:", response.status_code)
     return filtered_text
