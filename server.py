@@ -18,12 +18,12 @@ process_time = {}
 def sendProcessTimeAndWordCountand():
 
     data = request.json
-    url = data["data"] 
+    url = data["data"]
+    algorithmselected = data["selectedCheckboxes"]
 
     scrapped_data = DataScraper.getWepageData(url)
     
-    algorithmselected = ["NaiveStringMatching", "KMPAlgorithm"]
-    # print(scrapped_data)
+    # algorithmselected = ["NaiveStringMatching", "KMPAlgorithm", "RabinKarbAlgorithm"]
 
     wordCount, process_time = findWordCount.getProcessTimeAndWordCount(scrapped_data, algorithmselected)
     

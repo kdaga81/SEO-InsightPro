@@ -1,5 +1,5 @@
 import DataScraper
-from algorithms import KMPAlgo, NaiveStringMatching, RabinKarpAlgo
+from algorithms import KMPAlgo, NaiveStringMatching, RabinKarpAlgo, SuffixArray, SuffixTree
 import time
 
 
@@ -9,7 +9,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
     process_time = {}
 
     # run algorithms
-    if "NaiveStringMatching" in algorithmselected:
+    if "naiveStringMatching" in algorithmselected:
         start = time.process_time()
         
         text_data = scrapped_data.split()
@@ -26,7 +26,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
         print("time to run NaiveStringMatching algorithm", (end - start) , "secs")
 
 
-    if "KMPAlgorithm" in algorithmselected:
+    if "kmpAlgorithm" in algorithmselected:
         start = time.process_time()
         wordCount = {}
         text_data = scrapped_data.split()
@@ -39,10 +39,10 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
         end = time.process_time()
         process_time["KMPAlgorithm"] = (end - start) 
-        print("time to run KMPAlgorithm algorithm", (end - start),  "secs")
+        print("time to run KMP algorithm", (end - start),  "secs")
         
 
-    if "RabinKarbAlgorithm" in algorithmselected:
+    if "rabinKarp" in algorithmselected:
         start = time.process_time()
         wordCount = {}
         text_data = scrapped_data.split()
@@ -58,6 +58,40 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
 
         end = time.process_time()
         process_time["RabinKarbAlgorithm"] = (end - start)
-        print("time to run RabinKarbAlgorithm algorithm", (end - start), "secs")
+        print("time to run RabinKarb algorithm", (end - start), "secs")
+
+    if "suffixArray" in algorithmselected:
+        start = time.process_time()
+        wordCount = {}
+        text_data = scrapped_data.split()
+        # print(text_data)
+        for word in text_data:
+            if word in wordCount:
+                continue
+            else:
+                count = SuffixArray.count_pattern_occurrences(scrapped_data, word)
+
+                wordCount[word] = count
+
+        end = time.process_time()
+        process_time["SuffixArrayAlgorithm"] = (end - start)
+        print("time to run SuffixArray algorithm", (end - start), "secs")
+
+    if "suffixTree" in algorithmselected:
+        start = time.process_time()
+        wordCount = {}
+        text_data = scrapped_data.split()
+        # print(text_data)
+        for word in text_data:
+            if word in wordCount:
+                continue
+            else:
+                count = SuffixTree.count_pattern_occurrences(scrapped_data, word)
+                
+                wordCount[word] = count
+
+        end = time.process_time()
+        process_time["SuffixTreeAlgorithm"] = (end - start)
+        print("time to run SuffixTree algorithm", (end - start), "secs")
 
     return wordCount, process_time
