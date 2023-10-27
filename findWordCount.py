@@ -22,7 +22,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
 
         end = time.process_time()
-        process_time["NaiveStringMatching"] = (end - start)
+        process_time["NaiveString"] = (end - start)
         print("time to run NaiveStringMatching algorithm", (end - start) , "secs")
 
 
@@ -38,7 +38,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 count = KMPAlgo.kmp_search(scrapped_data, word)
                 wordCount[word] = count
         end = time.process_time()
-        process_time["KMPAlgorithm"] = (end - start) 
+        process_time["KMP"] = (end - start) 
         print("time to run KMP algorithm", (end - start),  "secs")
         
 
@@ -57,7 +57,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
 
         end = time.process_time()
-        process_time["RabinKarbAlgorithm"] = (end - start)
+        process_time["RabinKarb"] = (end - start)
         print("time to run RabinKarb algorithm", (end - start), "secs")
 
     if "suffixArray" in algorithmselected:
@@ -74,7 +74,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
 
         end = time.process_time()
-        process_time["SuffixArrayAlgorithm"] = (end - start)
+        process_time["SuffixArray"] = (end - start)
         print("time to run SuffixArray algorithm", (end - start), "secs")
 
     if "suffixTree" in algorithmselected:
@@ -91,7 +91,7 @@ def getProcessTimeAndWordCount(scrapped_data, algorithmselected):
                 wordCount[word] = count
 
         end = time.process_time()
-        process_time["SuffixTreeAlgorithm"] = (end - start)
+        process_time["SuffixTree"] = (end - start)
         print("time to run SuffixTree algorithm", (end - start), "secs")
 
     return wordCount, process_time
